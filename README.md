@@ -37,10 +37,6 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| credit_num    | integer    | null: false                    |
-| expdate_month | integer    | null: false                    |
-| expdate_year  | integer    | null: false                    |
-| cvv           | integer    | null: false                    |
 | postal_code   | integer    | null: false                    |
 | prefecture    | string     | null: false                    |
 | city          | string     | null: false                    |
