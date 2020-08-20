@@ -7,7 +7,6 @@
 | nickname              | string | null: false |
 | email                 | string | null: false |
 | password              | string | null: false |
-| password_confirmation | string | null: false |
 | name_first            | string | null: false |
 | name_last             | string | null: false |
 | name_kana_first       | string | null: false |
@@ -26,7 +25,7 @@
 | -------------------- | ---------- | ------------------------------ |
 | name                 | string     | null: false                    |
 | explanation          | text       | null: false                    |
-| price                | string     | null: false                    |
+| price                | integer     | null: false                    |
 | category             | integer    | null: false                    |
 | status               | integer    | null: false                    |
 | delivery_fee         | integer    | null: false                    |
