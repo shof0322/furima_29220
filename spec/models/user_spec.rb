@@ -3,13 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
-    @user.password = "#{@user.password}1a"
-    @user.password_confirmation = @user.password
-    @user.name_first = '山田'
-    @user.name_last = '太郎'
-    @user.name_kana_first = 'ヤマダ'
-    @user.name_kana_last = 'タロウ'
-    @user.birthday = '1989-03-22'
   end
   
   describe 'ユーザー新規登録' do
