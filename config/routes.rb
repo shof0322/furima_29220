@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: "items#index"
 
   post "/users/sign_up", to: "users#create"
+
+  resources :items, only: :new
 end
