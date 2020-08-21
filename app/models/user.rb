@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, :name_first, :name_last, :name_kana_first, :name_kana_last, :birthday, presence: true;
-  validates :name_first, :name_last, format: {with: /\A[ぁ-んァ-ン一-龥]/};
-  validates :name_kana_first, :name_kana_last, format: {with: /\A[ァ-ヶー－]+\z/};
-  
+  validates :nickname, :name_first, :name_last, :name_kana_first, :name_kana_last, :birthday, presence: true
+  validates :email, uniqueness: true
+  validates :name_first, :name_last, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+  validates :name_kana_first, :name_kana_last, format: { with: /\A[ァ-ヶー－]+\z/ }
+  validates :password, format: { with: /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{6,100}+\z/ }
 end
