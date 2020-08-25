@@ -8,7 +8,7 @@ class Item < ApplicationRecord
 
   #空の商品情報を保存できないようにする
   with_options presence: true do
-    validates :name, :explanation, :price, :category_id, :status_id, :delivery_fee_id, :shipping_origin_id, :days_until_shipping_id 
+    validates :image, :name, :explanation, :price, :category_id, :status_id, :delivery_fee_id, :shipping_origin_id, :days_until_shipping_id 
   end
 
   #ジャンルの選択が「--」の時は保存できないようにする
