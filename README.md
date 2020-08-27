@@ -37,6 +37,7 @@
 
 - belongs_to :user
 - has_one :buyer
+- has_one :purchase
 
 ## Purchases テーブル
 
