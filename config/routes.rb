@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   post "/users/sign_up", to: "users#create"
 
-  resources :items, only: [:new, :show, :edit, :update]
+  resources :items, only: [:new, :show, :edit, :update, :destroy]
 
   post 'items/create', to: 'items#create'
+
+  # git push中にネットワークが切れたので再プッシュ用
 end
