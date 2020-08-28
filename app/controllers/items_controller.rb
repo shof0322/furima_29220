@@ -17,8 +17,25 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+    if user_signed_in?
+      if current_user.id != @item.user_id
+        render 'show'
+      end
+    end 
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      render 'edit'
+    end
   end
 
   private
