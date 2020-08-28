@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :show, :edit, :update]
 
   post 'items/create', to: 'items#create'
+
+  # git push中にネットワークが切れたので再プッシュ用
 end
