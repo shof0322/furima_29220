@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   post "/users/sign_up", to: "users#create"
 
-  resources :items, only: [:new, :show]
+  resources :items, only: [:new, :show, :edit, :update]
 
   post 'items/create', to: 'items#create'
 end
