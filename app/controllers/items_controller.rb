@@ -23,10 +23,8 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     if user_signed_in?
-      if current_user.id != @item.user_id
-        render 'show'
-      end
-    end 
+      render 'show' if current_user.id != @item.user_id
+    end
   end
 
   def update
