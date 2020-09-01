@@ -8,7 +8,7 @@ class PurchaseBuyer
   validates :prefecture_id, numericality: { other_than: 1 }
   validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
   validates :phone_num, format: { with: /\A\d{11}\z/ }
-
+  
   def save
     # 購入情報を保存し、「purchase」という変数に入れている
     purchase = Purchase.create!(user_id: user_id, item_id: item_id)
