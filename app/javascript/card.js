@@ -7,18 +7,11 @@ const pay = () => {
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
 
-    // const card = {
-    //   number: formData.get("item[card_num]"),
-    //   cvc: formData.get("item[cvc]"),
-    //   exp_month: formData.get("item[exp_month]"),
-    //   exp_year: `20${formData.get("item[exp_year]")}`,
-    // };
-
     const card = {
-      number: formData.get("card_num"),
-      cvc: formData.get("cvc"),
-      exp_month: formData.get("exp_month"),
-      exp_year: `20${formData.get("exp_year")}`,
+      number: formData.get("purchase_buyer[card_num]"),
+      cvc: formData.get("purchase_buyer[cvc]"),
+      exp_month: formData.get("purchase_buyer[exp_month]"),
+      exp_year: `20${formData.get("purchase_buyer[exp_year]")}`,
     };
 
     Payjp.createToken(card, (status, response) => {
@@ -36,6 +29,8 @@ const pay = () => {
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
       } else {
+        window.alert("カード情報を正しく入力してください");
+        Location.reload();
       }
     });
   });
