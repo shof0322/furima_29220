@@ -13,7 +13,7 @@ RSpec.describe PurchaseBuyer, type: :model do
     end
 
     context '購入がうまくいかないとき' do
-      it 'postal_codeが ***-**** 以外だと購入できない' do
+      it 'postal_codeがハイフンがなければ購入できない' do
         @purchase.postal_code = '1112222'
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include('Postal code is invalid')
