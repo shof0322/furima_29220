@@ -4,27 +4,32 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @purchase = Purchase.new(user_id: current_user.id, item_id: params[:item_id])
+    @purchase = PurchaseBuyer.new(purchasebuyer_params)
     if @purchase.valid?
       pay_item
       @purchase.save
       return redirect_to root_path
     else
+      @item = Item.find(params[:item_id])
       render 'index'
     end
   end
 
   private
 
+  def purchasebuyer_params
+    params.permit(:item_id,:postal_code, :prefecture_id, :city, :address, :building, :phone_num, :purchase_id).merge(user_id: current_user.id)
+  end
+  
   def purchase_params
     params.permit(:token)
   end
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    binding.pry
+    # binding.pry
     Payjp::Charge.create(
-      amount: @purchase.item.price,  # 商品の値段
+      amount: Item.find(@purchase.item_id).price,  # 商品の値段
       card: purchase_params[:token],    # カードトークン
       currency:'jpy'                 # 通貨の種類(日本円)
     )
