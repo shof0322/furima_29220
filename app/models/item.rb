@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   has_one :buyer
-  has_one :purchase
+  has_one :purchase, dependent: :destroy
 
   # 空の商品情報を保存できないようにする
   with_options presence: true do
