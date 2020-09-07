@@ -35,5 +35,6 @@ const pay = () => {
     });
   });
 };
-
-window.addEventListener("load", pay);
+if (document.URL.match( /purchases/ )){
+  window.addEventListener("load", pay);
+}
